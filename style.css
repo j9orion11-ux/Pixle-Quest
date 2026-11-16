@@ -1,0 +1,31 @@
+:root{color-scheme:dark;font-family:system-ui,Segoe UI,sans-serif;background:#11131b;color:#eee4c7}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#293044,#101118 70%)}header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:14px 24px;border-bottom:3px solid #75552e;background:#181820}h1{font-size:22px;letter-spacing:2px;margin:0;color:#f6d78c}small{display:block;font-size:11px;letter-spacing:1px;color:#9facc0}main{display:grid;grid-template-columns:minmax(320px,790px) minmax(250px,340px);gap:20px;justify-content:center;padding:22px}.game,aside{background:#1c202c;border:2px solid #554733;box-shadow:0 12px 30px #0006;padding:12px}canvas{width:100%;height:auto;image-rendering:pixelated;display:block;background:#0c0e14;cursor:crosshair;border:3px solid #756344}.controls{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}button{background:#41382b;color:#ffdf9c;border:1px solid #a88a4d;border-radius:3px;padding:9px 11px;font-weight:700;cursor:pointer}button:hover:not(:disabled){background:#695034}button:disabled{opacity:.38;cursor:not-allowed}.hint{font-size:12px;line-height:1.5;color:#b3b9c9}h2{color:#e9bf77;font-size:16px;border-bottom:1px solid #5a4c38;padding-bottom:6px}.hero{padding:9px;margin:5px 0;border:1px solid #4c5261;cursor:pointer;background:#222737}.hero.selected{border-color:#e7c174;background:#35362e}.hero.dead{opacity:.45}.hero span{font-size:12px;color:#b3b9c9}#log{height:235px;overflow:auto;font:12px/1.6 ui-monospace,monospace;color:#c3d2b9}#log div{border-bottom:1px solid #353945;padding:4px 0}aside p{font-size:12px;color:#bac0c9;line-height:1.6}#status{font-weight:700;color:#edc27b}@media(max-width:850px){main{grid-template-columns:1fr;padding:8px}header{padding:12px}h1{font-size:18px}}
+
+/* Mobile-first interaction enhancements; desktop layout remains unchanged. */
+.board-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;color:#d4c7a9;font-size:12px}
+.board-toolbar button{min-height:40px;white-space:nowrap}
+.board-scroll{width:100%;overflow:auto;overscroll-behavior:contain;border:3px solid #756344;background:#0c0e14}
+.board-scroll canvas{border:0;max-width:none;touch-action:manipulation}
+.dpad{display:none}
+button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+button:focus-visible,.hero:focus-visible{outline:3px solid #f6d78c;outline-offset:2px}
+@media(max-width:850px){
+ html,body{width:100%;overflow-x:hidden}
+ header{padding:10px 12px;gap:6px}h1{font-size:17px;letter-spacing:1px}#status{font-size:12px}
+ main{display:flex;flex-direction:column;gap:10px;padding:8px;padding-bottom:calc(12px + env(safe-area-inset-bottom))}
+ .game,aside{min-width:0;padding:9px}
+ .board-scroll canvas{width:768px;height:576px}
+ .board-scroll.fit canvas{width:100%;height:auto}
+ .controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .controls button{min-height:48px;padding:9px 6px;font-size:13px}
+ .controls button:last-child{grid-column:span 2}
+ .dpad{display:flex;align-items:center;flex-direction:column;gap:4px;margin:10px auto 0}
+ .dpad>div{display:flex;gap:58px}
+ .dpad button{width:54px;height:46px;font-size:20px;line-height:1;padding:0;touch-action:manipulation}
+ .hero{min-height:48px;padding:12px}
+ .hint{font-size:13px}
+ #log{height:160px}
+}
+@media(min-width:851px){.board-toolbar #zoom{display:none}}
+
+/* v0.3 Android improvements */
+html{-webkit-text-size-adjust:100%}body{min-height:100dvh}button{user-select:none;-webkit-user-select:none}#board{user-select:none;-webkit-user-select:none} .board-scroll{scrollbar-width:thin} .hero{touch-action:manipulation} @media(max-width:850px){.board-scroll{max-height:min(58dvh,580px)}.controls button{min-height:52px}.controls button:last-child{grid-column:auto}.controls{grid-template-columns:repeat(2,minmax(0,1fr))}.dpad button{min-height:52px;min-width:58px}.game{padding:7px}.board-toolbar span{line-height:1.3}} @media(max-width:450px){h1{font-size:15px}.board-toolbar{font-size:11px}.controls button{font-size:12px}}
